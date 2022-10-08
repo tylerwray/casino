@@ -5,8 +5,10 @@ defmodule CasinoWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", CasinoWeb do
+  scope "/", CasinoWeb do
     pipe_through :api
+
+    post "/players", PlayerController, :create
   end
 
   # Enables LiveDashboard only for development

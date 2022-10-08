@@ -14,6 +14,8 @@ defmodule Casino.Application do
       CasinoWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Casino.PubSub},
+      # State the Presence
+      CasinoWeb.Presence,
       # Start the Endpoint (http/https)
       CasinoWeb.Endpoint
       # Start a worker by calling: Casino.Worker.start_link(arg)

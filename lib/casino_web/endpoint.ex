@@ -1,6 +1,7 @@
 defmodule CasinoWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :casino
 
+
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
@@ -11,6 +12,10 @@ defmodule CasinoWeb.Endpoint do
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+
+  socket "/socket", CasinoWeb.UserSocket,
+    websocket: true,
+    longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -44,5 +49,6 @@ defmodule CasinoWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug CORSPlug
   plug CasinoWeb.Router
 end
