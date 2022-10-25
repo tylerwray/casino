@@ -9,6 +9,7 @@ defmodule CasinoWeb.Router do
     pipe_through :api
 
     post "/players", PlayerController, :create
+    post "/games", GameController, :create
   end
 
   # Enables LiveDashboard only for development
